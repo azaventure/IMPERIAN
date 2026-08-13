@@ -30,12 +30,21 @@ body {
     margin-top: 3em;
 }
 
-#company-description {
+.text-box {
     font-size: 1.5em;
     width: 50%;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
+}
+
+.text-box ol,ul {
+    padding-left: 0;
+    list-style-position: inside;
+}
+
+.text-box ul {
+    text-align: left;
 }
 
 nav {
