@@ -1,7 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Sora:wght@400;600&display=swap");
+
 body {
     margin: 0;
     padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     font-family:
+        Sora,
         "Segoe UI",
         -apple-system,
         BlinkMacSystemFont,
@@ -13,6 +19,30 @@ body {
     color: black;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+#company-motto,
+#company-name-container,
+.footer-brand {
+    font-family:
+        "Space Grotesk",
+        "Segoe UI",
+        Arial,
+        sans-serif;
+    letter-spacing: -0.02em;
+}
+
+button,
+input,
+select,
+textarea {
+    font-family: inherit;
+}
+
 #company-name-container {
     padding: 0;
     display: inline-block;
@@ -22,10 +52,16 @@ body {
 
 #company-name-container a {
     padding: 0;
+    margin-left: 0;
     display: inline-flex;
     align-items: center;
     gap: 0.25em;
     font-weight: 700;
+    /* color: #5a9287; */
+}
+
+#company-name-container a:hover {
+    color: black;
 }
 
 #company-name-container img {
@@ -41,7 +77,8 @@ body {
 }
 
 .text-box {
-    font-size: 1.5em;
+    font-size: 1.15em;
+    line-height: 1.6;
     width: 50%;
     text-align: center;
     margin-left: auto;
@@ -54,37 +91,301 @@ ul {
     list-style-position: inside;
 }
 
+.text-box ol,
 .text-box ul {
+    margin: auto;
+    width: fit-content;
     text-align: left;
+    padding-top: 1.5em;
 }
 
-nav {
+#navbar {
     background-color: white;
     margin: 0;
-    padding: 1em;
-    padding-left: 4em;
-    padding-right: 4em;
+    padding: 1em 20% 1em 20%;
     vertical-align: middle;
     display: flex;
     align-items: center;
+    border-bottom: 2px solid #5a9287;
 }
 
 nav a {
-    padding-left: 1em;
+    margin-left: 1.5em;
     text-decoration: none;
     color: black;
     font-weight: 600;
 }
 
 .nav-link {
-    font-size: 1.5em;
+    font-size: 1.2em;
 }
 
 nav a:hover {
-    color: gray;
+    color: #5a9287;
+}
+
+.nav-link.is-current {
+    border-bottom: 3px solid #b33023;
+    padding-bottom: 0.1em;
 }
 
 h1 {
     text-align: center;
-    font-size: 4em;
+    font-size: 2.5em;
+    color: #5a9287;
+}
+
+#footer-placeholder {
+    margin-top: auto;
+}
+
+footer {
+    background-color: #5a9287;
+    color: black;
+    padding: 2em 4em;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1em 2em;
+}
+
+.footer-brand {
+    font-size: 1.5em;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25em;
+    margin-right: auto;
+    color:white;
+}
+
+.footer-brand img {
+    height: 1em;
+    width: auto;
+    filter: brightness(0) invert(1); /* the logo dont show up on the teal too good so this is hacky to make it white*/
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5em;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+.footer-legal {
+    width: 100%;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 0.9em;
+}
+
+.hero {
+    width: 100%;
+    min-height: 95vh;
+    background-image: linear-gradient(
+            rgba(20, 45, 40, 0.62),
+            rgba(20, 45, 40, 0.62)
+        ),
+        url("images/royalty-free-technology-image.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 4em 1em;
+    box-sizing: border-box;
+    color: white;
+}
+
+.hero #company-motto {
+    margin-top: 0;
+    margin-bottom: 0.25em;
+}
+
+.band {
+    padding: 4em 10%;
+}
+
+.band-alt {
+    background-color: white;
+}
+
+.band-title {
+    text-align: center;
+    font-size: 2em;
+    color: #5a9287;
+    margin-top: 0;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5em;
+    margin-top: 2em;
+}
+
+.card {
+    background-color: white;
+    border-top: 3px solid #5a9287;
+    padding: 1.5em;
+}
+
+.band-alt .card {
+    background-color: #ebe8e8;
+}
+
+.card h3 {
+    margin-top: 0;
+    font-size: 1.25em;
+}
+
+.card p {
+    margin-bottom: 0;
+    line-height: 1.6;
+}
+
+.band-link {
+    text-align: center;
+    margin-top: 2em;
+    margin-bottom: 0;
+}
+
+.band-link a {
+    color: #b33023;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.band-link a:hover {
+    text-decoration: underline;
+}
+
+.cta {
+    background-color: #142d28;
+    color: white;
+    padding: 4em 10%;
+    text-align: center;
+}
+
+.cta h2 {
+    margin-top: 0;
+    font-size: 2em;
+}
+
+.band-link a.cta-button {
+    display: inline-block;
+    background-color: #b33023;
+    color: white;
+    padding: 0.75em 2em;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.band-link a.cta-button:hover {
+    background-color: white;
+    color: #142d28;
+    text-decoration: none;
+}
+
+.page-header {
+    background-color: #142d28;
+    color: white;
+    padding: 3em 10%;
+    text-align: center;
+}
+
+.page-header h1 {
+    color: white;
+    margin: 0;
+}
+
+.page-header p {
+    margin: 0.75em auto 0 auto;
+    max-width: 40em;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.page-header + .text-box,
+.page-header + .card-grid {
+    margin-top: 3em;
+}
+
+.timeline {
+    width: 70%;
+    margin: 3em auto;
+    border-left: 3px solid #5a9287;
+    padding-left: 2em;
+}
+
+.timeline-item {
+    position: relative;
+    padding-bottom: 2.5em;
+}
+
+.timeline-item:last-child {
+    padding-bottom: 0;
+}
+
+/* The dot sits on the border line, so it needs half its width plus the border. */
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -2.65em;
+    top: 0.35em;
+    width: 0.85em;
+    height: 0.85em;
+    border-radius: 50%;
+    background-color: #b33023;
+}
+
+.timeline-item h2 {
+    margin: 0;
+    font-size: 1.5em;
+    color: #5a9287;
+}
+
+.timeline-item p {
+    margin: 0.5em 0 0 0;
+    line-height: 1.6;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5em;
+    width: 70%;
+    margin: 3em auto;
+}
+
+.contact-card {
+    background-color: white;
+    border-top: 3px solid #5a9287;
+    padding: 1.5em;
+}
+
+.contact-card h2 {
+    margin-top: 0;
+    font-size: 1.25em;
+}
+
+.contact-card a {
+    color: #b33023;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.contact-card a:hover {
+    text-decoration: underline;
 }
