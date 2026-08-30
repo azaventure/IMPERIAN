@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Letters</title>
+        <link rel="stylesheet" href="../assets/puzzle.css" />
+    </head>
+    <body>
+        <div class="puzzle">
+            <h2 class="puzzle-heading" id="jibberish">Letters</h2>
+            <div class="puzzle-body">
+                <div class="letter-grid" id="letter-grid"></div>
+            </div>
+        </div>
+        <script>
+            const COLUMNS = 13;
+
+            const letters = [
+                ..."KNDRSTLNEFJWO",
+                ..."VWEOXHGKGQZPC",
+                ..."BQYVARSHVNEQM",
+                ..."ZKPTUELBRNMBH",
+                ..."ESGLTEISLGNUF",
+                ..."HJXYUSDAQJKTU",
+                ..."CBNBZIBNEAPTK",
+                ..."ILURWXGMHUREQ",
+                ..."DHKOSTCNZAJRP",
+                ..."JRWYNYTEHVPFO",
+                ..."VTYUGVDCEEILU",
+                ..."JEUOLINTROMIJ",
+                ..."MGCLADEBCXPEL",
+                ..."VWGBQEWDSKESY",
+                ..."BFULEOMAJLRTD",
+                ..."HNKCZSEVRUINR",
+                ..."UDQKGHDBNZAWF",
+                ..."MZXRBPIGEONMI",
+                ..."JDRVHKAXZJNKL",
+                ..."UEAOMSFLJYNRV",
+                ..."SFDQWERTYKTLA",
+            ];
+
+            function renderGrid() {
+                const grid = document.getElementById("letter-grid");
+                grid.style.gridTemplateColumns = `repeat(${COLUMNS}, 1fr)`;
+
+                for (const letter of letters) {
+                    const cell = document.createElement("div");
+                    cell.className = "letter-cell";
+                    cell.textContent = letter;
+                    grid.appendChild(cell);
+                }
+            }
+
+            function jibberish() {
+                const jibberish = document.getElementById("jibberish");
+                const charSet = [
+                    ..."ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+                    ..."0123456789",
+                    ..."!@#$%^&*()_+-=[]{}|;:,.<>?/\\~`",
+                ];
+                const LENGTH = 15;
+                let newJibberish = "";
+
+                for (let x = 0; x < LENGTH; x++) {
+                    const index = Math.floor(Math.random() * charSet.length);
+                    newJibberish += charSet[index];
+                }
+                jibberish.innerText = newJibberish
+
+            }
+
+            document.addEventListener("DOMContentLoaded", renderGrid);
+            document.addEventListener("DOMContentLoaded", setInterval(jibberish, 10));
+        </script>
+    </body>
+</html>

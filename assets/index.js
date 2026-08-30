@@ -8,29 +8,22 @@ function markCurrentLink() {
   });
 }
 
-function isCareers() {
-  console.log("listener");
-  const isOnCareersPage = location.pathname.includes("/careers/");
 
-  const aggressionLink = document.getElementById("agression");
-
-  if (!isOnCareersPage && aggressionLink) {
-    aggressionLink.remove();
-    console.log("removed")
-  }
-}
 
 document.addEventListener("DOMContentLoaded", () => {
-  fetch("../navbar.html")
+  document.body.dataset.page =
+    location.pathname.split("/").filter(Boolean)[0] || "home";
+
+  fetch("/navbar.html")
     .then((response) => response.text())
     .then((data) => {
       document.getElementById("navbar-placeholder").innerHTML = data;
       markCurrentLink();
     });
-  fetch("../footer.html")
+  fetch("/footer.html")
     .then((response) => response.text())
     .then((data) => {
       document.getElementById("footer-placeholder").innerHTML = data;
     });
-  isCareers();
 });
+

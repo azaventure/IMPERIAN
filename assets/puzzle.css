@@ -1,0 +1,91 @@
+/* Styles for the hidden puzzle pages only. The main site does not load this file. */
+
+body {
+    /* background-color: #3a6ea5; */
+}
+
+/* The window frame. Change --base to recolor every bevel on the page. */
+.puzzle {
+    font-family: Tahoma, "MS Sans Serif", Verdana, sans-serif;
+    --base: #59d2bf;
+    --light: color-mix(in srgb, var(--base) 40%, white);
+    --dark: color-mix(in srgb, var(--base) 55%, black);
+
+    max-width: 800px;
+    margin: 2rem auto;
+    box-sizing: border-box;
+    padding: 3px;
+    background: var(--base);
+    box-shadow:
+        inset -1px -1px #0a0a0a,
+        inset 1px 1px var(--light),
+        inset -2px -2px var(--dark),
+        inset 2px 2px #ffffff;
+}
+
+.puzzle-body {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    box-shadow:
+        inset -1px -1px #ffffff,
+        inset 1px 1px #0a0a0a,
+        inset -2px -2px var(--light),
+        inset 2px 2px var(--dark);
+    background: #ffffff;
+    align-items: center;
+}
+
+.puzzle-icon {
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+    image-rendering: pixelated;
+}
+
+/* The title bar. Flat, no bevel. */
+.puzzle-heading {
+    margin: 0;
+    padding: 0.35rem 0.5rem;
+    background: var(--dark);
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: bold;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.puzzle-text {
+    margin: 0;
+    color: #000000;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.letter-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(13, 1fr);
+    gap: 2px;
+}
+
+.letter-cell {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #000000;
+    color: #000000;
+    font-size: clamp(0.6rem, 2vw, 1.1rem);
+}
+
+.mark {
+    color: rgb(122, 121, 121);
+}
+
+.mark-bold {
+    font-weight: bold;
+}
