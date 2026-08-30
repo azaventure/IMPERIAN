@@ -85,6 +85,79 @@ textarea {
     margin-right: auto;
 }
 
+.text-flow {
+    width: min(1100px, 90%);
+    display: grid;
+    grid-template-columns: 200px minmax(0, 1fr) 200px;
+    gap: 2em;
+    align-items: start;
+    text-align: left;
+}
+
+.text-flow p {
+    grid-column: 2;
+    margin: 0;
+}
+
+.image-container {
+    margin: 0;
+}
+
+.image-container img {
+    display: block;
+    width: 100%;
+}
+
+.image-container {
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+}
+
+.image-container .img-swap {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+}
+
+.image-container:active .img-swap {
+    opacity: 1;
+}
+
+/* Each image names its own row, so it stays level with its paragraph. */
+.image-container:nth-of-type(1) {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.image-container:nth-of-type(2) {
+    grid-column: 3;
+    grid-row: 2;
+}
+
+.image-container:nth-of-type(3) {
+    grid-column: 1;
+    grid-row: 4;
+}
+
+/* Below this width the gutters are too narrow to hold an image. */
+@media (max-width: 900px) {
+    .text-flow {
+        grid-template-columns: 1fr;
+    }
+
+    .text-flow p,
+    .image-container {
+        grid-column: 1;
+        grid-row: auto;
+    }
+
+    .image-container {
+        max-width: 200px;
+        margin: 0 auto;
+    }
+}
+
 .text-box ol,
 ul {
     padding-left: 0;
@@ -318,6 +391,7 @@ footer {
 }
 
 .page-header + .text-box,
+.page-header + .text-box-wrap,
 .page-header + .card-grid {
     margin-top: 3em;
 }
@@ -388,4 +462,32 @@ footer {
 
 .contact-card a:hover {
     text-decoration: underline;
+}
+
+.only-careers {
+  display: none;
+}
+
+body[data-page="careers"] .only-careers {
+  display: inline;
+}
+
+.text-box-wrap {
+    position: relative;
+}
+
+/* Invisible hover targets in the empty space beside the text. */
+.margin-hover {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 25%;
+}
+
+.margin-hover.left {
+    left: 0;
+}
+
+.margin-hover.right {
+    right: 0;
 }
